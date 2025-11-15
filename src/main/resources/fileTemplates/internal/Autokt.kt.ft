@@ -1,0 +1,20 @@
+package ${PACKAGE_NAME}
+
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
+import com.seattlesolvers.solverslib.command.Robot
+
+@Autonomous
+class ${NAME} : LinearOpMode() {
+    // Add class members here
+
+    override fun runOpMode() {
+        // Initialization code here
+
+        waitForStart()
+
+        while (opModeIsActive()) {
+            // Repeated autonomous loop code
+        }
+    }
+}

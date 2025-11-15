@@ -1,0 +1,75 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>org.example.FTC_Code_Snippets</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
+    <name>FTC_Code_Snippets</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="cohenphill@outlook.com">Cohen Hill</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
+    <description><![CDATA[
+        Enter short description for your plugin here.<br>
+        <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <internalFileTemplate name="Subsystem.java.ft"/>
+        <internalFileTemplate name="Command.java.ft"/>
+        <internalFileTemplate name="TeleOp.java.ft"/>
+        <internalFileTemplate name="Auto.java.ft"/>
+        <internalFileTemplate name="Robot.java.ft"/>
+        <internalFileTemplate name="Subsystemkt.kt.ft"/>
+        <internalFileTemplate name="Commandkt.kt.ft"/>
+        <internalFileTemplate name="TeleOpkt.kt.ft"/>
+        <internalFileTemplate name="Autokt.kt.ft"/>
+        <internalFileTemplate name="Robotkt.kt.ft"/>
+
+        <applicationConfigurable instance="org.example.ftc_code_snippets.settings.PluginSettingsConfigurable"/>
+    </extensions>
+
+    <actions>
+        <group id="FTC.Code.Snippets.Group"
+               text="FTC"
+               description="FTC Code Generators"
+               popup="true">
+            <add-to-group group-id="NewGroup" anchor="last"/>
+
+            <action id="NewAutoAction"
+                    class="org.example.ftc_code_snippets.NewAutoAction"
+                    text="FTC Autonomous OpMode"
+                    description="Creates a new Autonomous OpMode"/>
+
+            <action id="NewTeleOpAction"
+                    class="org.example.ftc_code_snippets.NewTeleOpAction"
+                    text="FTC TeleOp OpMode"
+                    description="Creates a new TeleOp OpMode"/>
+
+            <action id="NewSubsystemAction"
+                    class="org.example.ftc_code_snippets.NewSubsystemAction"
+                    text="FTC Subsystem"
+                    description="Creates a new Subsystem"/>
+
+            <action id="NewCommandAction"
+                    class="org.example.ftc_code_snippets.NewCommandAction"
+                    text="FTC Command"
+                    description="Creates a new Command"/>
+
+            <action id="NewRobotAction"
+                    class="org.example.ftc_code_snippets.NewRobotAction"
+                    text="FTC Robot Class"
+                    description="Creates a new Robot container"/>
+        </group>
+    </actions>
+
+</idea-plugin>

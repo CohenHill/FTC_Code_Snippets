@@ -1,0 +1,30 @@
+package ${PACKAGE_NAME}
+
+import org.firstinspires.ftc.teamcode.Config.Subsystems.WSubsystem
+// import com.qualcomm.robotcore.hardware.DcMotorEx // Example hardware import
+
+class ${NAME} : WSubsystem() {
+
+    // Declare hardware here, e.g.:
+    // private val motor: DcMotorEx = hardwareMap.get(DcMotorEx::class.java, "motorName")
+
+    init {
+        // Perform hardware initialization here
+        // motor.zeroPowerBehavior = DcMotor.ZeroPowerBehavior.BRAKE
+    }
+
+    override fun read() {
+        // Read hardware sensor/input values here
+        // val position = motor.currentPosition
+    }
+
+    override fun loop() {
+        // Non-hardware logic: calculations, state machines, etc.
+        // Example: update PID controllers
+    }
+
+    override fun write() {
+        // Write outputs to hardware here
+        // motor.power = 0.5
+    }
+}

@@ -1,0 +1,24 @@
+package ${PACKAGE_NAME}
+
+import com.seattlesolvers.solverslib.command.CommandBase
+import com.seattlesolvers.solverslib.command.Robot
+
+class ${NAME}(private val robot: Robot) : CommandBase() {
+
+    override fun initialize() {
+        // Ran once when the command starts
+    }
+
+    override fun execute() {
+        // Ran repeatedly until the command ends
+    }
+
+    override fun end(interrupted: Boolean) {
+        // Ran once when the command ends
+    }
+
+    override fun isFinished(): Boolean {
+        // Return true when the command should finish
+        return false
+    }
+}

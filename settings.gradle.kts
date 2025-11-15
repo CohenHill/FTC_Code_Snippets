@@ -1,0 +1,1 @@
+rootProject.name = "FTC_Code_Snippets"

@@ -1,0 +1,19 @@
+package ${PACKAGE_NAME}
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp
+
+@TeleOp
+class ${NAME} : LinearOpMode() {
+    // Add class members here
+
+    override fun runOpMode() {
+        // Initialization code here
+
+        waitForStart()
+
+        while (opModeIsActive()) {
+            // Code to run repeatedly during teleop
+        }
+    }
+}

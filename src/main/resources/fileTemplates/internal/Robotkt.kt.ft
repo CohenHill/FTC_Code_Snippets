@@ -1,0 +1,33 @@
+package ${PACKAGE_NAME}
+
+import com.seattlesolvers.solverslib.command.Robot
+
+class ${NAME}(type: ${NAME}.OpModeType) : Robot() {
+
+    enum class OpModeType {
+        TELEOP,
+        AUTO
+    }
+
+    init {
+        if (type == OpModeType.TELEOP) {
+            initTele()
+        } else {
+            initAuto()
+        }
+    }
+
+    /**
+     * Initialize teleop\-specific scheduler/components.
+     */
+    fun initTele() {
+        // Initialize teleop\-specific scheduler
+    }
+
+    /**
+     * Initialize autonomous\-specific scheduler/components.
+     */
+    fun initAuto() {
+        // Initialize auto\-specific scheduler
+    }
+}

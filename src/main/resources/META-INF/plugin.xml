@@ -1,20 +1,36 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-    <id>org.example.FTC_Code_Snippets</id>
+    <id>com.cohenhill.ftc.codesnippets</id>
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
-    <name>FTC_Code_Snippets</name>
+    <name>FTC Code Snippets</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="cohenphill@outlook.com">Cohen Hill</vendor>
+    <vendor email="cohenphill@outlook.com" url="https://github.com/cohenhill">Cohen</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
     <description><![CDATA[
-        Enter short description for your plugin here.<br>
-        <em>most HTML tags may be used</em>
+        <p>A productivity plugin for <b>FIRST Tech Challenge (FTC)</b> robotics teams using IntelliJ IDEA or Android Studio.</p>
+
+        <p><em>Note: This plugin generates templates for the <a href="https://github.com/SeattleSolvers/SolversLib">SolversLib</a> command-based framework.</em></p>
+
+        <h3>Features</h3>
+        <ul>
+            <li>Generate boilerplate code for <b>Autonomous OpModes</b></li>
+            <li>Generate boilerplate code for <b>TeleOp OpModes</b></li>
+            <li>Generate <b>Subsystem</b> classes following the read-loop-write pattern</li>
+            <li>Generate <b>WSubsystem</b> abstract base class</li>
+            <li>Generate <b>Command</b> classes for structured robot control</li>
+            <li>Generate <b>Robot</b> container classes</li>
+            <li>Support for both <b>Java</b> and <b>Kotlin</b> templates</li>
+            <li>Configurable language preference in settings</li>
+        </ul>
+
+        <h3>Usage</h3>
+        <p>Right-click in the Project view → New → FTC Snippets → Select the desired template type.</p>
     ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -24,49 +40,60 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <internalFileTemplate name="Subsystem.java.ft"/>
-        <internalFileTemplate name="Command.java.ft"/>
-        <internalFileTemplate name="TeleOp.java.ft"/>
-        <internalFileTemplate name="Auto.java.ft"/>
-        <internalFileTemplate name="Robot.java.ft"/>
-        <internalFileTemplate name="Subsystemkt.kt.ft"/>
-        <internalFileTemplate name="Commandkt.kt.ft"/>
-        <internalFileTemplate name="TeleOpkt.kt.ft"/>
-        <internalFileTemplate name="Autokt.kt.ft"/>
-        <internalFileTemplate name="Robotkt.kt.ft"/>
+        <internalFileTemplate name="Subsystem.java"/>
+        <internalFileTemplate name="Command.java"/>
+        <internalFileTemplate name="TeleOp.java"/>
+        <internalFileTemplate name="Auto.java"/>
+        <internalFileTemplate name="Robot.java"/>
+        <internalFileTemplate name="WSubsystem.java"/>
+        <internalFileTemplate name="Subsystemkt.kt"/>
+        <internalFileTemplate name="Commandkt.kt"/>
+        <internalFileTemplate name="TeleOpkt.kt"/>
+        <internalFileTemplate name="Autokt.kt"/>
+        <internalFileTemplate name="Robotkt.kt"/>
+        <internalFileTemplate name="WSubsystemkt.kt"/>
 
-        <applicationConfigurable instance="org.example.ftc_code_snippets.settings.PluginSettingsConfigurable"/>
+        <applicationConfigurable
+                id="com.cohenhill.ftc.codesnippets.settings"
+                parentId="tools"
+                displayName="FTC Code Snippets"
+                instance="com.cohenhill.ftc.codesnippets.settings.PluginSettingsConfigurable"/>
     </extensions>
 
     <actions>
         <group id="FTC.Code.Snippets.Group"
-               text="FTC"
+               text="FTC Snippets"
                description="FTC Code Generators"
                popup="true">
             <add-to-group group-id="NewGroup" anchor="last"/>
 
             <action id="NewAutoAction"
-                    class="org.example.ftc_code_snippets.NewAutoAction"
+                    class="com.cohenhill.ftc.codesnippets.NewAutoAction"
                     text="FTC Autonomous OpMode"
                     description="Creates a new Autonomous OpMode"/>
 
             <action id="NewTeleOpAction"
-                    class="org.example.ftc_code_snippets.NewTeleOpAction"
+                    class="com.cohenhill.ftc.codesnippets.NewTeleOpAction"
                     text="FTC TeleOp OpMode"
                     description="Creates a new TeleOp OpMode"/>
 
             <action id="NewSubsystemAction"
-                    class="org.example.ftc_code_snippets.NewSubsystemAction"
+                    class="com.cohenhill.ftc.codesnippets.NewSubsystemAction"
                     text="FTC Subsystem"
                     description="Creates a new Subsystem"/>
 
+            <action id="NewWSubsystemAction"
+                    class="com.cohenhill.ftc.codesnippets.NewWSubsystemAction"
+                    text="FTC WSubsystem Base Class"
+                    description="Creates the abstract WSubsystem base class"/>
+
             <action id="NewCommandAction"
-                    class="org.example.ftc_code_snippets.NewCommandAction"
+                    class="com.cohenhill.ftc.codesnippets.NewCommandAction"
                     text="FTC Command"
                     description="Creates a new Command"/>
 
             <action id="NewRobotAction"
-                    class="org.example.ftc_code_snippets.NewRobotAction"
+                    class="com.cohenhill.ftc.codesnippets.NewRobotAction"
                     text="FTC Robot Class"
                     description="Creates a new Robot container"/>
         </group>

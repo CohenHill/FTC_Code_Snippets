@@ -1,0 +1,40 @@
+package ${PACKAGE_NAME};
+}
+    }
+        write();
+        loop();
+        read();
+    public void periodic() {
+     */
+     * Convenience method to run the full read-loop-write cycle.
+    /**
+
+    public abstract void write();
+     */
+     * Example: motor.setPower(calculatedPower);
+     * Called at the end of each loop cycle.
+     * Write all outputs to hardware.
+    /**
+
+    public abstract void loop();
+     */
+     * Example: Calculate PID output, update state machines.
+     * Called after read(), before write().
+     * Process data and run control logic.
+    /**
+
+    public abstract void read();
+     */
+     * Example: position = motor.getCurrentPosition();
+     * Called at the beginning of each loop cycle.
+     * Read all sensor and encoder values from hardware.
+    /**
+
+public abstract class ${NAME} extends SubsystemBase {
+ */
+ * Extend this class to create organized, maintainable subsystems.
+ * Abstract base class for FTC subsystems following the read-loop-write pattern.
+/**
+
+import com.seattlesolvers.solverslib.command.SubsystemBase;
+

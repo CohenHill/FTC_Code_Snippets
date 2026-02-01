@@ -1,4 +1,4 @@
-package org.example.ftc_code_snippets.settings
+package com.cohenhill.ftc.codesnippets.settings
 
 import com.intellij.openapi.components.*
 

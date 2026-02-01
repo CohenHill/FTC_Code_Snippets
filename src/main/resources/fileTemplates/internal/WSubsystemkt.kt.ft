@@ -1,0 +1,40 @@
+package ${PACKAGE_NAME}
+
+import com.seattlesolvers.solverslib.command.SubsystemBase
+
+/**
+ * Abstract base class for FTC subsystems following the read-loop-write pattern.
+ * Extend this class to create organized, maintainable subsystems.
+ */
+abstract class ${NAME} : SubsystemBase() {
+
+    /**
+     * Read all sensor and encoder values from hardware.
+     * Called at the beginning of each loop cycle.
+     * Example: position = motor.currentPosition
+     */
+    abstract fun read()
+
+    /**
+     * Process data and run control logic.
+     * Called after read(), before write().
+     * Example: Calculate PID output, update state machines.
+     */
+    abstract fun loop()
+
+    /**
+     * Write all outputs to hardware.
+     * Called at the end of each loop cycle.
+     * Example: motor.power = calculatedPower
+     */
+    abstract fun write()
+
+    /**
+     * Convenience method to run the full read-loop-write cycle.
+     */
+    fun periodic() {
+        read()
+        loop()
+        write()
+    }
+}

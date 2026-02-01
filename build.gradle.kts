@@ -4,8 +4,8 @@ plugins {
     id("org.jetbrains.intellij.platform") version "2.7.1"
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+group = "com.cohenhill.ftc"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -26,10 +26,18 @@ intellijPlatform {
     pluginConfiguration {
         ideaVersion {
             sinceBuild = "251"
+            untilBuild = "253.*"
         }
 
         changeNotes = """
-            Initial version
+            <h3>1.0.0</h3>
+            <ul>
+                <li>Initial release</li>
+                <li>FTC OpMode templates (Autonomous, TeleOp)</li>
+                <li>Command-based architecture templates (Subsystem, Command, Robot)</li>
+                <li>Java and Kotlin language support</li>
+                <li>Configurable language preference in settings</li>
+            </ul>
         """.trimIndent()
     }
 }

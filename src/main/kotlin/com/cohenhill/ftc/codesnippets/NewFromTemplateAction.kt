@@ -1,26 +1,27 @@
-package org.example.ftc_code_snippets
+package com.cohenhill.ftc.codesnippets
 
 import com.intellij.ide.actions.CreateFileFromTemplateAction
 import com.intellij.ide.actions.CreateFileFromTemplateDialog
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiDirectory
 import org.jetbrains.annotations.NonNls
-import org.example.ftc_code_snippets.settings.PluginState
+import com.cohenhill.ftc.codesnippets.settings.PluginState
+import javax.swing.Icon
 
 open class NewFromTemplateAction(
     text: String,
     description: String,
-    private val baseTemplateName: String   // e.g. "Subsystem"
-) : CreateFileFromTemplateAction(text, description, null) {
+    private val baseTemplateName: String,
+    private val icon: Icon? = null
+) : CreateFileFromTemplateAction(text, description, icon) {
 
     private fun resolvedTemplateName(): String {
         val lang = PluginState.instance.state.preferredLanguage
 
         return if (lang == "Kotlin") {
-            val kt = "kt"
-            "$baseTemplateName$kt"
+            "${baseTemplateName}kt.kt"
         } else {
-            "$baseTemplateName"
+            "$baseTemplateName.java"
         }
     }
 
@@ -32,7 +33,7 @@ open class NewFromTemplateAction(
         val template = resolvedTemplateName()
 
         builder.setTitle("Create $baseTemplateName")
-        builder.addKind(baseTemplateName, null, template)
+        builder.addKind(baseTemplateName, icon, template)
     }
 
     override fun getActionName(

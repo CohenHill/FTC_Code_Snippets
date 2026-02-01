@@ -122,7 +122,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - [FIRST Tech Challenge](https://www.firstinspires.org/robotics/ftc) for inspiring robotics education
-- [Seattle Solvers]([https://github.com/SeattleSolvers](https://docs.seattlesolvers.com/)) for the SolversLib command-based framework
+- [Seattle Solvers](https://docs.seattlesolvers.com/) for the SolversLib command-based framework
 - [JetBrains](https://www.jetbrains.com/) for the IntelliJ Platform SDK
 
 
